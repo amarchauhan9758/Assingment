@@ -14,7 +14,7 @@ function Notes() {
   }, []);
 
   return (
-    <div className="w-1/4    shadow h-28">
+    <div className="lg:w-1/4    shadow lg:h-28">
       <div className=" shadow-md bg-white rounded-tr-2xl  mb-5">
         <h3 className="text-lg font-semibold p-3">Notes</h3>
         <div className="bg-gray-300 text-sm p-5 m-2 text-left ">
@@ -48,7 +48,7 @@ function Notes() {
 
       {post.map((element, index) => {
         return (
-          <div key={index} className="bg-white shadow-md py-8 my-3  ml-4items-center border-2 rounded  ">
+          <div key={index} className="bg-white shadow-md py-8 my-3  ml-4 items-center border-2 rounded  ">
           <img className="w-24 h-24 mx-auto mb-5 rounded-full" src={'https://media.istockphoto.com/photos/head-shot-portrait-of-smiling-businesswoman-intern-looking-at-camera-picture-id1329936184'} alt="avatar" />
           <div className="bg-slate-200 rounded p-5 text-center mx-3 text-gray-700 font-semibold hover:text-blue-800">
           

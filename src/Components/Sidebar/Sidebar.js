@@ -19,10 +19,10 @@ function Sidebar() {
 
 
 
-      <div className="w-1/4 ">
-      <div className="flex-1 flex flex-col  border-r border-gray-200 bg-white rounded-tl-2xl ">
-        <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
-          <div className="flex items-center flex-shrink-0 px-4">
+      <div className="lg:w-1/4 ">
+      <div className="lg:flex-1 flex flex-col  border-r border-gray-200 bg-white rounded-tl-2xl ">
+        <div className="flex-1 lg:flex flex-col pt-5 pb-4 overflow-y-auto">
+          <div className="lg:flex items-center flex-shrink-0 px-4">
             <img
               className="h-8 w-auto"
               src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
@@ -34,7 +34,7 @@ function Sidebar() {
             aria-label="Sidebar"
           >
             <Link
-              to="/"
+              to="/Appointment"
               className="bg-gray-100 text-gray-900 hover:text-gray-100 hover:bg-blue-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
             >
               <svg
@@ -56,7 +56,7 @@ function Sidebar() {
             </Link>
 
             <Link
-              to="/Appointment"
+              to="/overview"
               className="text-gray-600 hover:text-gray-200 hover:bg-blue-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
             >
               <svg
@@ -82,7 +82,7 @@ function Sidebar() {
             </Link>
 
             <Link
-              to="/"
+              to="/Message"
               className="text-gray-600 hover:text-gray-200 hover:bg-blue-600 group flex items-center px-2 py-2 text-sm font-medium "
             >
               <svg
@@ -108,7 +108,7 @@ function Sidebar() {
             </Link>
 
             <Link
-              to="/"
+              to="/Calender"
               className="text-gray-600 hover:text-gray-200 hover:bg-blue-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
             >
               <svg
@@ -130,7 +130,7 @@ function Sidebar() {
             </Link>
 
             <Link
-              to="/"
+              to="/Document"
               className="text-gray-600 hover:text-gray-200 hover:bg-blue-600 flex items-center px-2 py-2 text-sm font-medium rounded-md"
             >
               <svg
@@ -156,7 +156,7 @@ function Sidebar() {
             </Link>
 
             <Link
-              to="/"
+              to="/Reports"
               className="text-gray-600 hover:text-gray-200 hover:bg-blue-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
             >
               <svg
@@ -180,7 +180,7 @@ function Sidebar() {
         </div>
         <div className="flex-shrink-0 flex border-t border-gray-200 p-4">
           <Link to="/" className="flex-shrink-0 w-full group block">
-            <div className="flex items-center  mt-56">
+            <div className="flex items-center  lg:mt-56">
               <div>
                 <img
                   className="inline-block h-9 w-9 rounded-full"
@@ -188,7 +188,7 @@ function Sidebar() {
                   alt=""
                 />
               </div>
-              <div className="ml-3">
+              <div className="ml-3 ">
               <div>
               {post.map((element, index) => {
                 return (

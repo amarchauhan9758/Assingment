@@ -56,11 +56,11 @@ class Content extends Component {
   render() {
    
     return (
-      <div className="p-20">
+      <div className="lg:p-20 p-10">
         <div className="border-4 border-black min-h-screen rounded-2xl">
-          <div className="flex">
+          <div className="lg:flex">
            
-          <Sidebar   />
+          <Sidebar/>
 
             {this.state.article.map((element) => {
               return (
@@ -81,7 +81,7 @@ class Content extends Component {
               );
             })}
 
-            <Notes />
+            <Notes/>
           </div>
 
           <Routes>

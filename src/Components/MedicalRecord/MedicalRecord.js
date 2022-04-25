@@ -9,7 +9,7 @@ function MedicalRecord() {
          axios.get('https://619f39821ac52a0017ba467e.mockapi.io/appointment_details')
          .then(response=>{
           console.log(response)
-          setstate(response.data)
+          setstate(response.data.slice(0,1))
          })
  },[])
 
@@ -32,29 +32,11 @@ function MedicalRecord() {
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
-                    Time
+                    Status
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Date
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Timer
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Dentist
-                  </th>
-                  <th scope="col" className="relative px-6 py-3">
-                    <span className="sr-only">Notes</span>
-                  </th>
+                 
+                 
+                  
                 </tr>
               </thead>
 
@@ -64,12 +46,8 @@ function MedicalRecord() {
                     
                     
                     <tbody key={index}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{element.Time}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{element.Date} </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"> {element.Dentist}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{element.Treatment}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{element.Nurse}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{element.Doc}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{element["Medical Records"].status}</td>
+                   
                     </tbody>
                   )
                 })

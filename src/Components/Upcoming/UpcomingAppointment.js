@@ -8,7 +8,7 @@ function UpcomingAppointment() {
               axios.get('https://619f39821ac52a0017ba467e.mockapi.io/appointment_details')
               .then(response=>{
                console.log(response)
-               setstate(response.data)
+               setstate(response.data.slice(0,1))
               })
       },[])
 
@@ -17,7 +17,7 @@ function UpcomingAppointment() {
     <div className='text-center mr-3'>
    
         
-    <div className=" h-1/2 mx-auto w-2/3  p-12">
+    <div className=" h-1/2 mx-auto lg:w-2/3  p-12">
            
        
     <div className="flex flex-col shadow-xl">
@@ -76,12 +76,12 @@ function UpcomingAppointment() {
                     
                     
                     <tbody key={index}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{element.Time}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{element.Date} </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"> {element.Dentist}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{element.Treatment}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{element.Nurse}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{element.Doc}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{element['Upcoming Appointments'].Time}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{element['Upcoming Appointments'].Date} </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"> {element['Upcoming Appointments'].Dentist}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{element['Upcoming Appointments'].Treatment}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{element['Upcoming Appointments'].Nurse}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{element['Upcoming Appointments'].Doc}</td>
                     </tbody>
                   )
                 })
