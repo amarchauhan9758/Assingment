@@ -1,94 +1,102 @@
-import React from 'react'
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
+
+import Notes from "../Notes/Notes";
+import Patient from "../Patient/Patient";
+
+import Sidebar from "./../Sidebar/Sidebar";
 
 
-import Notes from '../Notes/Notes';
-import Patient from '../Patient/Patient';
+import { Component } from "react";
+import PastAppointment from "../PastAppointment/PastAppointment";
+import Appointment from './../Appointment/Appointment';
+import { Routes,Route } from "react-router-dom";
 
+import UpcomingAppointment from './../Upcoming/UpcomingAppointment';
+import MedicalRecord from "./../MedicalRecord/MedicalRecord";
 
-import Sidebar from './../Sidebar/Sidebar';
-import ContactWrapper from './../ContactWrapper/ContactWrapper';
-
-import { Component } from 'react';
-
-
-class Content extends Component{
-
+class Content extends Component {
   articles = [
     
     {
       name: " Cooper",
-      "email": "xyz",
+      email: "",
       Past: 15,
       Upcoming: 2,
       Gender: "Female",
-      Birthday: "Feb 24th, 1997",
-      "Phone Number": 111111,
-      "Street Address": "JI. Diponegoro No. 21",
-      "ZIP Code": 655849,
-      "Member Status": "Active Member",
-      "Register Date": "Feb 24th, 1997",
-    }
+      Birthday: "",
+      "Phone Number": '',
+      "Street Address": null,
+      "ZIP Code": null,
+      "Member Status": " ",
+      "Register Date": "",
+    },
   ];
-   
-     
-  
-constructor() {
-  super();
-  this.state ={
-    article : this.articles
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      article: this.articles,
+    };
+  }
+  componentDidMount() {
+    axios.get("https://619f39821ac52a0017ba467e.mockapi.io/patientDetails")
+      .then((reponse) => {
+        const result = reponse.data.slice(0, 1);
+        console.log(result);
+
+        this.setState({ article: result });
+      });
+  }
+
 
 
 
     
-  }
-}
-componentDidMount() {
-  axios.get("https://619f39821ac52a0017ba467e.mockapi.io/patientDetails")
-    .then((reponse) => {
-      console.log(reponse.data);
-       this.setState({ article:reponse.data});
-      
-    })
-
-//     .catch((error) => {
-//       console.log(error);
-//     });
- }
-render(){
-
-  
-  
-  
+  render() {
+   
     return (
-      <div className='p-20'>
-      <div className='border-4 border-black rounded-2xl'>
-      <div className=''>
-     <Sidebar/>
-     {this.state.article.map((element) => {
-      return (
-        <div className="my-10" key={element.email}>
-          <Patient
-            name={element.name}
-            Birthday={element.Birthday}
-            Gender={element.Gender}
-            Past={element.Past}
-            Upcoming={element.Upcoming}
-          />
+      <div className="p-20">
+        <div className="border-4 border-black min-h-screen rounded-2xl">
+          <div className="flex">
+           
+          <Sidebar   />
+
+            {this.state.article.map((element) => {
+              return (
+                <div className="my-10" key={1}>
+                  <Patient
+                    name={element.name}
+                    Birthday={element.Birthday}
+                    Gender={element.Gender}
+                    Past={element.Past}
+                    Upcoming={element.Upcoming}
+                    Add={element["Street Address"]}
+                    Zip={element["ZIP Code"]}
+                    Member={element["Member Status"]}
+                    Mobo={element["Phone Number"]}
+                    Register={element["Register Date"]}
+                  />
+                </div>
+              );
+            })}
+
+            <Notes />
+          </div>
+
+          <Routes>
+            <Route path='/Appointment' element={<Appointment/>}>
+              <Route index element={<UpcomingAppointment/>} />
+              <Route path='feature' element={<UpcomingAppointment/>}></Route>
+              <Route path='new' element={<PastAppointment/>}></Route>
+              <Route path='report' element={<MedicalRecord/>}></Route>
+            </Route>
+          </Routes>
+
+          
         </div>
-      );
-    })}
-      
-      <Notes/>
-     
       </div>
-     <ContactWrapper/>
-  
-      </div>
-  
-      
-      </div>
-    )
+    );
   }
 
 }
